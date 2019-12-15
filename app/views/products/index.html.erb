@@ -1,0 +1,18 @@
+<h1>Products list</h1>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+  </thead>
+  <% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td> <%= link_to "Edit", edit_product_path(product) %> | 
+    <%= link_to "Delete", product, method: :delete, data: { confirm: "Do you confirm to Delete the item" } %></td>
+  </tr>
+  <% end %>
+</table>
+<%= link_to "Create Product", new_product_path %>
